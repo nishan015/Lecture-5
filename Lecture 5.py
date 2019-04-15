@@ -88,11 +88,32 @@ my_func(**params)                               #unpacking the dictionary matche
 
 #Generators
 
-def my_gen(stop):
+def my_gen():
     v = -1
     while True:
         v += 1
         yield v                #yield statement inside a loop makes the function as a generator
+        
+# after every iteration the generator stops
+
+generator = my_gen()    #create an instance
+print(next(generator))
+
+# if we want to make it a finite loop
+def my_gen(stop):
+    v = -1
+    while v <= stop:
+        v += 1
+        yield v 
+
+generator = my_gen(100)
+print(next(generator))
+
+# lambda. Using a function without using a name. Used if we need to use function one time. for instance a function used 
+# for only one row or column of data
+
+my_func1 = lambda x: x*2
+print(my_func1(5))
 
 
 
